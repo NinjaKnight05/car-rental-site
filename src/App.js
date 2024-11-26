@@ -3,13 +3,13 @@ import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import Client from "./components/pages/Client";
 import ContactUs from "./components/pages/ContactUs";
+import { Rent } from "./components/pages/Rent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Master from "./components/layouts/Master";
 import Register from "./components/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./components/auth/Login";
-// import Comment from "./components/pages/Comment";
 import Cars from "./components/pages/Cars";
 import AdminMaster from "./components/layouts/AdminMaster";
 import AdminWelcome from "./components/pages/AdminWelcome";
@@ -34,6 +34,7 @@ function App() {
             <Route path="/price" element={ <Price />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/cars" element={<Cars />} />
+            <Route path="/rent" element={<Rent />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Route>

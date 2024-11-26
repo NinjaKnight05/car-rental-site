@@ -20,7 +20,7 @@ export default function About() {
                         </div>
                      </div>
                      <div className="col-md-6">
-                        <div className="image_iman"><img src="/assets/images/banner-img.png" className="about_img" /></div>
+                        <div className="image_iman"><img src="/assets/images/R.png" className="about_img" /></div>
                      </div>
                   </div>
                </div>
@@ -33,7 +33,7 @@ export default function About() {
                <div className="about_section_3">
                   <div className="row">
                      <div className="col-md-5">
-                        <div className="image_iman"><img src="/assets/images/brrom.jpg" className="about_img" /></div>
+                        <div className="image_iman"><img src="/assets/images/bbrrom.jpg" className="about_img" /></div>
                      </div>
                      <div className="col-md-7">
                         <div className="about_taital_box">

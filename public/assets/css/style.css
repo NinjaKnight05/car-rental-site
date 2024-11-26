@@ -1194,7 +1194,7 @@ textarea#comment.massage-bt::placeholder {
   padding: 20px;
   text-align: center; /* Aligns text to the right within the container */
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
   margin: 0; /* Removes excessive margins */
   width: 100%; /* Ensures the container spans the full width */
@@ -1740,7 +1740,7 @@ textarea#comment.massage-bt::placeholder {
   padding: 20px;
   text-align: end; /* Aligns text to the right within the container */
   color: black;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
   margin: 0; /* Removes excessive margins */
   width: 100%; /* Ensures the container spans the full width */
@@ -1851,3 +1851,184 @@ textarea#comment.massage-bt::placeholder {
   border-top: 1px solid #ddd;
   margin: 15px 0;
 }
+
+/* form-section */
+.main-picr {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  height: 100vh; /* Full height of the viewport */
+  width: 100%; /* Automatically adjusts to the container */
+  background-image: url('../images/rentpic.jpg'); /* Ensure path is correct */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  display: flex; /* Enables flexbox for centering content */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  text-align: center; /* Aligns text to the center */
+}
+
+.how-it-works .step {
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+  position: relative; 
+}
+
+.how-it-works .step:after {
+  width: 100%;
+  height: 4px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 25px;
+  background: #007bff;
+}
+
+.how-it-works .step:last-child:after {
+  display: none;
+}
+
+.how-it-works .step .number {
+ z-index: 1;
+ width: 50px;
+ height: 50px;
+ border: 4px solid #007bff;
+ background: #fff;
+ border-radius: 50%;
+ color: #007bff;
+ display: block;
+ position: relative;
+ margin: 0 auto 10px auto;
+}
+
+.how-it-works .step .number > span {
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+.how-it-works .step .caption {
+  display: block; 
+}
+
+.form-headline {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.part2 {
+  margin-top: 60px;
+}
+
+.header-part3 {
+  margin-top: 50px;
+}
+
+.form-headline1 {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.textul {
+  font-size: 17px;
+  font-weight: 200;
+  color: black;
+}
+
+.about_taitalr {
+  padding: 20px;
+  text-align: center; /* Aligns text to the right */
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0; /* Removes excessive margins */
+  width: 100%; /* Ensures full width */
+  box-sizing: border-box; /* Prevents padding from affecting layout */
+  padding-bottom:280px;
+}
+
+.rent-header1 {
+  max-width: 600px; /* Limits the width of the form container */
+  width: 100%; /* Ensures responsiveness */
+  margin: 50px auto; /* Centers horizontally */
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px 6px #f4f3f2;
+}
+
+.rent-header1:hover {
+  box-shadow: 0px 0px 10px 10px #3eb8da77;
+}
+
+.details-area {
+  display: block; /* Makes input fields stack vertically */
+  width: 100%;
+  padding: 8px; /* Adds padding inside the input */
+  border-radius: 10px;
+  margin-top: 10px; /* Adds space between input fields */
+  border:0px;
+}
+.details-area:hover{
+  box-shadow: 0px 0px 3px 1px rgba(210, 44, 239, 0.747);
+}
+
+.form-label {
+  margin-top: 20px; /* Adds consistent spacing above labels */
+  font-size: 14px;
+}
+
+.form-start {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh; /* Ensures full viewport height */
+  padding: 0 20px; /* Adds horizontal padding for small screens */
+  background-color: white; /* Optional background color */
+}
+
+.one-two-three{
+ display: flex;
+ justify-content: space-evenly;
+}
+
+.read_bt2 {
+  display: flex; /* Use flexbox to align items */
+  justify-content: space-between; /* Adds space between buttons */
+  width: 100%; /* Ensure the container spans the full width */
+  max-width: 400px; /* Optional: Set a max width for the container */
+  margin: 20px auto; /* Centers the container on the page */
+}
+
+.read_bt2 a {
+  flex: 1; /* Buttons take equal space */
+  margin: 0 10px; /* Adds spacing between buttons */
+  font-size: 16px;
+  color: #fefefd;
+  text-align: center;
+  background-color: black;
+  font-weight: bold;
+  padding: 10px 15px; /* Adds padding inside the button */
+  text-decoration: none; /* Removes underline */
+  border-radius: 5px; /* Optional: Rounds the corners */
+  transition: 0.3s; /* Smooth hover transition */
+}
+
+.read_bt2 a:hover {
+  color: #fefefd;
+  background-color: #444e56; /* Changes background color on hover */
+}
+
+
+
+
