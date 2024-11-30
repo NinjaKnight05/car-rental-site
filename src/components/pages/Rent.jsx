@@ -97,14 +97,6 @@ export function Rent() {
                                           name="message"
                                        />
 
-                                       <label className="form-label">Gender</label>
-                                       <div className="one-two-three">
-                                          <input type="radio" name="gender" />Male
-                                          <input type="radio" name="gender" />Female
-                                          <input type="radio" name="gender" />Other
-                                       </div>
-
-
                                        <div className="read_bt2">
                                           <a href="#">Rent Now</a>
                                        </div>

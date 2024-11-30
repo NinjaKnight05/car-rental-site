@@ -17,7 +17,7 @@ header {
 
 /* register */
 .main1 {
-  background-image: url("../images/wowoow.jpg");
+  background-image: url("../images/R.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: calc(100vh - 60px);
@@ -96,22 +96,22 @@ textarea:focus,
 }
 
 button {
-  background: transparent;
-  height: 40px;
-  line-height: 30px;
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  background-color: black;
+  color:white;
   border-radius: 40px;
-  border: 1px solid #1f89b3;
-  margin: 15px 0;
-  color: white;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  cursor: pointer;
+  margin-top:20px;
+  display: flex;
+  justify-content: center;
 }
 
 button:hover {
-  background: #8fa8bd;
+  background: rgba(20, 19, 19, 0.8);
+  color:white;
 }
 
 .register_padding {

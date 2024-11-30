@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function AdminHeader() {
   return ( 
     <div className="main">
-      <div className="header_section position-fixed">
+      <div className="header_section position-absolute">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="/">

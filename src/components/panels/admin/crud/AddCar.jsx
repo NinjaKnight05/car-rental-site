@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import { db } from '../../../../Firebase';
-// import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

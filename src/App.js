@@ -6,10 +6,10 @@ import ContactUs from "./components/pages/ContactUs";
 import { Rent } from "./components/pages/Rent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Master from "./components/layouts/Master";
-import Register from "./components/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./components/auth/Login";
+import Signup from './components/auth/Signup';
 import Cars from "./components/pages/Cars";
 import AdminMaster from "./components/layouts/AdminMaster";
 import AdminWelcome from "./components/pages/AdminWelcome";
@@ -28,14 +28,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Master />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About/>} />
             <Route path="/client" element={<Client />} />
             <Route path="/price" element={ <Price />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/cars" element={<Cars />} />
             <Route path="/rent" element={<Rent />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
           </Route>
           <Route path="/admin" element={<AdminMaster />}>

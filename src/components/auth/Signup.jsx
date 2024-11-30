@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebse";
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -16,27 +18,25 @@ export default function Login() {
         e.preventDefault();
         setError(null);
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                toast.success("Logged in successfully!", {
-                    onClose: () => navigate("/home"), // Navigate after the toast closes
-                });
-            } catch (err) {
-                console.error("Login Failed:", err.message);
-                toast.error(
-                    err.message.includes("user-not-found")
-                        ? "No account found with this email."
-                        : err.message.includes("wrong-password")
-                        ? "Incorrect password. Please try again."
-                        : "Login failed. Please try again."
-                );
-            }
+        if (password.length < 6) {
+            // Display toast notification for short password
+            toast.error("Password should be at least 6 characters long");
+            return;
+        }
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            toast.success("Account created successfully! Please log in.");
+            setSuccess(true); // Redirect after successful account creation
+        } catch (err) {
+            console.error("Error creating account:", err.message);
+            toast.error(err.message);
+        }
     };
 
     if (success) {
-        navigate("/home");
+        navigate("/login");
     }
-
 
     return (
         <div className="main1">
@@ -49,13 +49,34 @@ export default function Login() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <h1 className="about_taitalsign">
-                                            Login<span style={{ color: "red" }}> Here</span>
+                                            Sign<span style={{ color: "red" }}> Up</span>
                                         </h1>
                                     </div>
                                     <div className="col-md-12">
                                         <div className="signup-header1">
                                             <form onSubmit={handleSubmit}>
-                                                {/* Email */}
+                                                <label className="form-label">First name</label>
+                                                <input
+                                                    type="text"
+                                                    name="firstname"
+                                                    value={firstname}
+                                                    placeholder="Fname"
+                                                    className="details-area"
+                                                    onChange={(e) => setFirstname(e.target.value)}
+                                                    required
+                                                />
+
+                                                <label className="form-label">Last name</label>
+                                                <input
+                                                    type="text"
+                                                    name="lastname"
+                                                    value={lastname}
+                                                    placeholder="Lname"
+                                                    className="details-area"
+                                                    onChange={(e) => setLastname(e.target.value)}
+                                                    required
+                                                />
+
                                                 <label className="form-label">Email</label>
                                                 <input
                                                     type="email"
@@ -67,7 +88,6 @@ export default function Login() {
                                                     required
                                                 />
 
-                                                {/* Password */}
                                                 <label className="form-label">Password</label>
                                                 <input
                                                     type="password"
@@ -79,9 +99,19 @@ export default function Login() {
                                                     required
                                                 />
 
-                                                {/* Sign Up Button */}
-                                                <button type="submit">Sign Up</button>
-                                                <a href="signup" className="account">Create Account?</a>
+                                                {/* Error Message */}
+                                                {error && (
+                                                    <p style={{ color: "red", fontWeight: "bold" }}>
+                                                        {error}
+                                                    </p>
+                                                )}
+
+                                                <button type="submit" className="site-btn">
+                                                    Sign Up
+                                                </button>
+                                                <a href="login" className="account">
+                                                    Already Have Account?
+                                                </a>
                                             </form>
                                         </div>
                                     </div>

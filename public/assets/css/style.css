@@ -1425,19 +1425,133 @@ textarea#comment.massage-bt::placeholder {
 /* copyright section end */
 
 /* admin page styling */
-/* .admin-welcome {
+.main-picad {
   font-family: Arial, sans-serif;
   padding: 20px;
-  min-height: calc(100vh - 120px);
-  background-image: url(../images/admi.jpg);
-  background-size: cover;
-  justify-content: center;
-  height: 100vh;
+  height: 100vh; /* Full height of the viewport */
+  width: 100%; /* Automatically adjusts to the container */
+  background-image: url('../images/carexs.jpg'); /* Ensure path is correct */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  display: flex; /* Enables flexbox for centering content */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  text-align: center; /* Aligns text to the center */
   
+}
+
+.data-card{
+  width: 100%;
+  float: left;
+  background-color: white;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px 6px #f4f3f2;
+  margin:20px;
+}
+
+.data-card:hover {
+  box-shadow: 0px 0px 10px 10px #a364d45f;
+}
+
+.data-card2:hover {
+  box-shadow: 0px 0px 10px 10px #a364d45f;
+}
+.data-card3:hover {
+  box-shadow: 0px 0px 10px 10px #a364d45f;
+}
+
+.data-card4:hover {
+  box-shadow: 0px 0px 10px 10px #64add45f;
+}
+
+
+.data-card2{
+  width: 100%;
+  /* float: left; */
+  background-color: white;
+  height:400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px 6px #f4f3f2;
+  margin:20px;
+}
+
+.data-card3{
+  width: 100%;
+  float: left;
+  background-color: white;
+  height: 300px;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px 6px #f4f3f2;
+  margin:20px;
+  margin-bottom: 100px;
+}
+
+.data-card4{
+  width: 100%;
+  float: left;
+  background-color: white;
+  height: 300px;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 6px 6px #f4f3f2;
+  margin:20px;
+  margin-bottom: 100px;
+}
+
+/* .data-card4 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
 } */
+
+.box {
+  background-color: rgba(143, 218, 199, 0.619);
+  /* border: 1px solid #ddd; */
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0px 4px 6px rgba(178, 33, 186, 0.429);
+}
+
+.box h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.box p {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+
 .video1 {
   width: 100%;
   height: auto;
+}
+
+.clock{
+  color:white;
 }
 
 .welcome-banner {
@@ -2000,6 +2114,8 @@ textarea#comment.massage-bt::placeholder {
 .one-two-three{
  display: flex;
  justify-content: space-evenly;
+ font-size: 20px;
+ color:black;
 }
 
 .read_bt2 {
@@ -2029,6 +2145,83 @@ textarea#comment.massage-bt::placeholder {
   background-color: #444e56; /* Changes background color on hover */
 }
 
+.current-status {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 
 
+
+.clock{
+  color:black;
+}
+
+.about-taitalad {
+  padding: 20px;
+  text-align: center; /* Aligns text to the right */
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0; /* Removes excessive margins */
+  width: 100%; /* Ensures full width */
+  box-sizing: border-box; /* Prevents padding from affecting layout */
+  padding-top:123px;
+}
+
+.secand-area-start{
+  margin:50px;
+}
+
+/* register-area */
+
+
+.about_taitalsign {
+  padding: 20px;
+  text-align: center; /* Aligns text to the right */
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0; /* Removes excessive margins */
+  width: 100%; /* Ensures full width */
+  box-sizing: border-box; /* Prevents padding from affecting layout */
+  padding-top:10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-header1 {
+  max-width: 600px; /* Limits the width of the form container */
+  width: 100%; /* Ensures responsiveness */
+  margin: 40px  auto; /* Centers horizontally */
+  background-color:rgba(245, 245, 245, 0.511);
+  padding: 20px;
+  border-radius: 30px;
+  /* box-shadow: 0px 0px 6px 6px #f4f3f2; */
+  /* margin-bottom: 20px; */
+}
+
+.signup-start {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  /* min-height: 100vh; Ensures full viewport height */
+  padding: 0 20px; /* Adds horizontal padding for small screens */
+  background-color: transparent; /* Optional background color */
+  margin:0 auto;
+}
+
+.signup-header1:hover {
+  box-shadow: 0px 0px 10px 10px #282828b5;
+}
+
+.account{
+  font-size: 20px;
+  color:black;
+  font-weight: bold;
+}
 
