@@ -7,27 +7,30 @@ const AddBrand = () => {
   const [logo, setLogo] = useState('');
   const [status, setStatus] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!name || !logo || !status) {
-      toast.error("All fields are required!");
+      toast.error('All fields are required!');
       return;
     }
 
-    // Create the message body object
-    const messageBody = {
+    // Create the new brand object
+    const newBrand = {
       name,
       logo,
       status,
-      
     };
 
-    // Log the message body to the console
-    console.log("Message Body: ", messageBody);
-
     try {
-      // Clear form fields after submission
+      // Retrieve existing brands from localStorage
+      const existingBrands = JSON.parse(localStorage.getItem('brands')) || [];
+      // Add the new brand to the list
+      const updatedBrands = [...existingBrands, newBrand];
+      // Save the updated list back to localStorage
+      localStorage.setItem('brands', JSON.stringify(updatedBrands));
+
+      // Clear the form fields
       setName('');
       setLogo('');
       setStatus('');
@@ -40,10 +43,10 @@ const AddBrand = () => {
   };
 
   return (
-    <div className='form_main'>
+    <div className="form_main">
       <div className="add-brand-container">
         <ToastContainer />
-        <h2 className='brand_h'>Add New Brand</h2>
+        <h2 className="brand_h">Add New Brand</h2>
         <form onSubmit={handleSubmit}>
           {/* Brand Name Field */}
           <div className="form-group">

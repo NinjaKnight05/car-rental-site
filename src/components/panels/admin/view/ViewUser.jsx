@@ -11,62 +11,40 @@ const ViewUser = () => {
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Contact</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
           </tr>
         </thead>
         <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>demo</td>
+            <td>demo@gmail.com</td>
+            <td>9876543210</td>  
+          </tr>
           <tr>
             <th scope="row">1</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>    
+            <td>jokerr</td>
+            <td>jokeer@gmail.com</td>
+            <td>8968557443</td>  
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>  
+            <td>joker1</td>
+            <td>joker1@gmail.com</td>
+            <td>6363334463</td>
            
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>  
+            <td>tobi</td>
+            <td>tobi@gmail.com</td>
+            <td>575875677</td> 
            
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>  
-           
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>   
           </tr>
           <tr>
             <th scope="row">6</th>
-            <td>Aman</td>
-            <td>aman@gmail.com</td>
-            <td>6230469810</td>
-            <td>Pujab</td>
-            <td>Ludhiana</td>  
-           
+            <td>Yuvi</td>
+            <td>yuvi@gmail.com</td>
+            <td>7457657634</td>
           </tr>
           
         </tbody>

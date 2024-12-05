@@ -97,7 +97,7 @@ export default function Home() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <span> <h1 className="current-status">current status</h1></span>
+              <span> <h1 className="current-status">current statics</h1></span>
             </div>
           </div>
           <div className="admin-page">

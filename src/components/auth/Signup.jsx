@@ -35,7 +35,7 @@ export default function Signup() {
     };
 
     if (success) {
-        navigate("/login");
+        navigate("/");
     }
 
     return (

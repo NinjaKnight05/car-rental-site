@@ -1,6 +1,31 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebse";
+import { toast } from "react-toastify";
 
 export default function Header() {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Logged out successfully!");
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error.message);
+      toast.error("Failed to log out. Please try again.");
+    }
+  };
+
   return (
     <div className="main">
       <div className="header_section">
@@ -16,8 +41,8 @@ export default function Header() {
             <button
               className="navbar-toggler"
               type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
@@ -30,7 +55,7 @@ export default function Header() {
             >
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/home">
+                  <Link className="nav-link" to="/">
                     Home
                   </Link>
                 </li>
@@ -49,28 +74,47 @@ export default function Header() {
                     Testimonials
                   </Link>
                 </li>
+                {/* <li className="nav-item">
+                  <Link className="nav-link" to="/admin">
+                    Statics
+                  </Link>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/price">
                     Price
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/rent">
                     Form
                   </Link>
-                </li>
+                </li> */}
               </ul>
-              <ul className="navbar-nav ml-auto ">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signup">
-                    Register
-                  </Link>
-                </li>
+              <ul className="navbar-nav ml-auto">
+                {user ? (
+                  <li className="nav-item">
+                    <button
+                      className="nav-link btn btn-link"
+                      onClick={handleLogout}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/login">
+                        Login
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/signup">
+                        Register
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </nav>

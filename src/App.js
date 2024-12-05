@@ -3,13 +3,13 @@ import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import Client from "./components/pages/Client";
 import ContactUs from "./components/pages/ContactUs";
-import { Rent } from "./components/pages/Rent";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Rent from './components/pages/Rent';  
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Master from "./components/layouts/Master";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./components/auth/Login";
-import Signup from './components/auth/Signup';
+import Signup from "./components/auth/Signup";
 import Cars from "./components/pages/Cars";
 import AdminMaster from "./components/layouts/AdminMaster";
 import AdminWelcome from "./components/pages/AdminWelcome";
@@ -22,13 +22,38 @@ import AddCar from "./components/panels/admin/crud/AddCar";
 import ManageCar from "./components/panels/admin/crud/ManageCar";
 import ViewBooking from "./components/panels/admin/view/ViewBookimg";
 import { Price } from "./components/pages/Price";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+import { auth } from "./firebse";
+
+function ProtectedRoute({ children, adminOnly }) {
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return <div>Loading...</div>; // Loader while Firebase checks user
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />; // Redirect unauthenticated users to login
+  }
+
+  if (adminOnly) {
+    const adminEmail = "admin@gmail.com"; // Replace with your admin email
+    if (user.email !== adminEmail) {
+      return <Navigate to="/home" replace />; // Redirect non-admin users to home
+    }
+  }
+
+  return children; // Allow access if authenticated (and admin for adminOnly routes)
+}
+
 function App() {
   return (
     <>
-      <BrowserRouter>
+            <BrowserRouter>
         <Routes>
           <Route path="/" element={<Master />}>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About/>} />
             <Route path="/client" element={<Client />} />
             <Route path="/price" element={ <Price />} />
@@ -53,7 +78,9 @@ function App() {
         </Routes>
       </BrowserRouter>
       <ToastContainer />
+
     </>
   );
 }
+
 export default App;

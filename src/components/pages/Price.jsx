@@ -57,7 +57,7 @@ export function Price() {
                                     </ul>
                                 </div>
                                 <div className="read_bt1">
-                                    <a href="#">Rent a Car</a>
+                                    <a href="/rent">Rent a Car</a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ export function Price() {
                                     </ul>
                                 </div>
                                 <div className="read_bt1">
-                                    <a href="#">Rent a Car</a>
+                                    <a href="/rent">Rent a Car</a>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ export function Price() {
                                     </ul>
                                 </div>
                                 <div className="read_bt1">
-                                    <a href="#">Rent a Car</a>
+                                    <a href="/rent">Rent a Car</a>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@ export function Price() {
                                     </ul>
                                 </div>
                                 <div className="read_bt1">
-                                    <a href="#">Rent a Car</a>
+                                    <a href="/rent">Rent a Car</a>
                                 </div>
                             </div>
                         </div>

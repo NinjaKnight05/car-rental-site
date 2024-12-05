@@ -103,7 +103,7 @@ export default function Cars() {
                       <div className="gallery_img"><img src={car.imgSrc} /></div>
                       <h3 className="types_text">{car.brand}</h3>
                       <p className="looking_text">Start per day &#8377;{car.price}</p>
-                      <div className="read_bt"><Link to="#">Book Now</Link></div>
+                      <div className="read_bt"><Link to="/price">Book Now</Link></div>
                     </div>
                   </div>
                 ))}

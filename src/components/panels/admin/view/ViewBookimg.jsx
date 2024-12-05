@@ -1,79 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
 const ViewBooking = () => {
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    // Retrieve bookings from localStorage
+    const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    setBookings(storedBookings);
+  }, []);
+
+  const handleDelete = (index) => {
+    // Delete booking and update localStorage
+    const updatedBookings = bookings.filter((_, i) => i !== index);
+    localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+    setBookings(updatedBookings);
+  };
+
   return (
-    <div className='table_main mx-auto'>
-    <div className="table-responsive m-5">
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Sr. No</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Car Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Brand Name</th>
-            <th scope="col">Date of Booking</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>    
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>     
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>      
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>       
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Taran</td>
-            <td>taran@gmail.com</td>
-            <td>Mercedes</td>
-            <td>50,000</td>
-            <td>brand_name</td>    
-            <td>10/10/2020</td>  
-          </tr>    
-        </tbody>
-      </table>
-    </div>
+    <div className="container">
+      <h2>View Bookings</h2>
+      {bookings.length > 0 ? (
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Address</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Car Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map((booking, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{booking.firstName}</td>
+                <td>{booking.lastName}</td>
+                <td>{booking.email}</td>
+                <td>{booking.contact}</td>
+                <td>{booking.address}</td>
+                <td>{booking.rent_start_date}</td>
+                <td>{booking.rent_end_date}</td>
+                <td>{booking.car_type}</td>
+                <td>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleDelete(index)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No bookings available. Please book a car first.</p>
+      )}
     </div>
   );
 };

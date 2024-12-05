@@ -4,6 +4,7 @@ import React from "react";
 export default function About() {
    return (
       <div className="main">
+         
          { /* about section start */}
          <div className="about_section layout_padding">
             <div className="container">

@@ -1,25 +1,26 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
+// import { getStorage } from "firebase/storage"; // Uncomment if needed
+// import { getAnalytics } from "firebase/analytics"; // Uncomment if Analytics is used
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA131Wu-vZe76jTvaO6RJHLcHI1v4tfkaA",
   authDomain: "rentndgo.firebaseapp.com",
   projectId: "rentndgo",
-  storageBucket: "rentndgo.firebasestorage.app",
+  storageBucket: "rentndgo.appspot.com", // Fixed typo
   messagingSenderId: "119446397236",
   appId: "1:119446397236:web:7ae2a059e70b59525b8561",
-  measurementId: "G-17305D3ME3"
+  measurementId: "G-17305D3ME3", // Optional, used for Analytics
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app)
+// const analytics = getAnalytics(app); // Optional, uncomment if needed
+const auth = getAuth(app);
+const db = getFirestore(app);
+// const storage = getStorage(app); // Uncomment if needed
 
-export { app, auth }
+export { app, auth, db };

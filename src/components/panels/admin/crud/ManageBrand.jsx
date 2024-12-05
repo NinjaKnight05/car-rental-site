@@ -4,17 +4,21 @@ const ManageBrand = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-
-    const savedBrands = JSON.parse(localStorage.getItem('brands')) || [];
-    setBrands(savedBrands);
+    try {
+      const savedBrands = JSON.parse(localStorage.getItem('brands')) || [];
+      setBrands(savedBrands);
+    } catch (error) {
+      console.error("Error loading brands from localStorage: ", error);
+      setBrands([]);
+    }
   }, []);
 
   const handleDelete = (index) => {
-
-    const updatedBrands = brands.filter((_, i) => i !== index);
-
-    localStorage.setItem('brands', JSON.stringify(updatedBrands));
-    setBrands(updatedBrands);
+    if (window.confirm("Are you sure you want to delete this brand?")) {
+      const updatedBrands = brands.filter((_, i) => i !== index);
+      localStorage.setItem('brands', JSON.stringify(updatedBrands));
+      setBrands(updatedBrands);
+    }
   };
 
   return (
@@ -32,25 +36,22 @@ const ManageBrand = () => {
           <tbody>
             {brands.length > 0 ? (
               brands.map((brand, index) => (
-                <tr key={index}>
+                <tr key={brand.name || index}>
                   <th scope="row">{index + 1}</th>
                   <td>{brand.name}</td>
                   <td>
                     <img
                       src={brand.logo}
                       alt={brand.name}
-                      style={{ width: '50px', height: '50px' }}
+                      className="brand-logo"
                     />
                   </td>
-                  <td>
-                    <button className="btn btn-primary btn-sm">Edit</button>
                     <button
                       className="btn btn-danger btn-sm m-sm-1"
                       onClick={() => handleDelete(index)}
                     >
                       Delete
                     </button>
-                  </td>
                 </tr>
               ))
             ) : (

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react"; // Import useState from React
+import { Link, Navigate } from "react-router-dom";
 import video2 from "../../Movie/video2.mp4";
 import Swal from "sweetalert2";
-// import { namedQuery } from "firebase/firestore";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
   const onSubmit = async (event) => {
@@ -26,16 +27,19 @@ export default function Home() {
     }).then((res) => res.json());
 
     if (res.success) {
-      // toast.success('messsagesent')
+      
       Swal.fire({
         title: "Sucess",
         text: "Message Sent ScuessFully 😁!",
         icon: "success"
       })
-    } 
+    }
   };
 
+
+
   return (
+
     <div className="main">
       <>
         <video src={video2} autoPlay loop muted className="video" />
@@ -102,7 +106,7 @@ export default function Home() {
                       LuxRyRides – where luxury meets convenience. Enjoy your
                       journey with us!
                     </p>
-                   
+
                   </div>
                 </div>
               </div>
@@ -129,7 +133,7 @@ export default function Home() {
                     <h3 className="types_text">Bugatti</h3>
                     <p className="looking_text">Start per day &#8377;30,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -141,7 +145,7 @@ export default function Home() {
                     <h3 className="types_text">Mercedes</h3>
                     <p className="looking_text">Start per day &#8377;28,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -153,7 +157,7 @@ export default function Home() {
                     <h3 className="types_text">Rolls-Royce</h3>
                     <p className="looking_text">Start per day &#8377;45,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -169,7 +173,7 @@ export default function Home() {
                     <h3 className="types_text">Audi</h3>
                     <p className="looking_text">Start per day &#8377;35,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -181,7 +185,7 @@ export default function Home() {
                     <h3 className="types_text">Bmw</h3>
                     <p className="looking_text">Start per day &#8377;25,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -193,7 +197,7 @@ export default function Home() {
                     <h3 className="types_text">Range rover</h3>
                     <p className="looking_text">Start per day &#8377;35,000</p>
                     <div className="read_bt">
-                      <a href="#">Book Now</a>
+                      <a href="/price">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -224,7 +228,7 @@ export default function Home() {
                     Our cars are equipped with the latest safety features,
                     providing you with peace of mind on the road. Additionally,
                     our secure booking system protects your personal
-                    information, ensuring a safe and seamless rental experience.
+                    information, ensuring a safe and seamless priceal experience.
                   </p>
                 </div>
                 <div className="col-sm-4">
@@ -282,15 +286,8 @@ export default function Home() {
                       <div className="col-md-4">
                         <div className="client_taital_box">
                           <div className="client_img">
-                          <img src="/assets/images/logorr.png" />
+                            <img src="/assets/images/logorr.png" />
                           </div>
-                          {/* <h3 className="moark_text">John D.</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />A seamless booking process and top-notch
-                            customer service. The car was pristine and made my
-                            trip memorable. Highly recommended!"
-                          </p> */}
                         </div>
                       </div>
                       <div className="col-md-4">
@@ -298,14 +295,6 @@ export default function Home() {
                           <div className="client_img">
                             <img src="/assets/images/logol.png" />
                           </div>
-                          {/* <h3 className="moark_text">Sarah</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐
-                            <br />
-                            Outstanding experience! Easy online booking and
-                            prompt responses. The car was comfortable and
-                            stylish. Will use again!"
-                          </p> */}
                         </div>
                       </div>
                       <div className="col-md-4">
@@ -313,14 +302,6 @@ export default function Home() {
                           <div className="client_img">
                             <img src="/assets/images/logok.png" />
                           </div>
-                          {/* <h3 className="moark_text">Sarah</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐
-                            <br />
-                            Outstanding experience! Easy online booking and
-                            prompt responses. The car was comfortable and
-                            stylish. Will use again!"
-                          </p> */}
                         </div>
                       </div>
                     </div>
@@ -329,7 +310,7 @@ export default function Home() {
                 <div className="carousel-item">
                   <div className="row">
                     <div className="col-md-12">
-                    <h1 className="client_taital">Brands Availaible</h1>
+                      <h1 className="client_taital">Brands Availaible</h1>
                     </div>
                   </div>
                   <div className="client_section_2">
@@ -339,14 +320,6 @@ export default function Home() {
                           <div className="client_img1">
                             <img src="/assets/images/logom.png" />
                           </div>
-                          {/* <h3 className="moark_text">Priya K.</h3>
-                          <p className="client_text">
-                            
-                            <br />
-                            Exceeded expectations with friendly service and a
-                            luxurious car. Delivery to my doorstep was
-                            incredibly convenient. Felt like a VIP!
-                          </p> */}
                         </div>
                       </div>
                       <div className="col-md-4">
@@ -354,14 +327,6 @@ export default function Home() {
                           <div className="client_img1">
                             <img src="/assets/images/logof.png" />
                           </div>
-                          {/* <h3 className="moark_text">Vikram</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />
-                            The entire process was seamless and the car was in
-                            perfect condition. Truly a luxurious experience.
-                            Will rent again!
-                          </p> */}
                         </div>
                       </div>
                       <div className="col-md-4">
@@ -369,14 +334,6 @@ export default function Home() {
                           <div className="client_img1">
                             <img src="/assets/images/dodge_PNG53.png" />
                           </div>
-                          {/* <h3 className="moark_text">Vikram</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />
-                            The entire process was seamless and the car was in
-                            perfect condition. Truly a luxurious experience.
-                            Will rent again!
-                          </p> */}
                         </div>
                       </div>
                     </div>
@@ -386,7 +343,7 @@ export default function Home() {
                 <div className="carousel-item">
                   <div className="row">
                     <div className="col-md-12">
-                       <h1 className="client_taital">Brands Availaible</h1>
+                      <h1 className="client_taital">Brands Availaible</h1>
                     </div>
                   </div>
                   <div className="client_section_2">
@@ -394,47 +351,24 @@ export default function Home() {
                       <div className="col-md-4">
                         <div className="client_taital_box">
                           <div className="client_img">
-                          <img src="/assets/images/bugati.png" />
+                            <img src="/assets/images/bugati.png" />
                           </div>
-                          {/* <h3 className="moark_text">Riya-</h3>
-                          <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />
-                            Fantastic service and immaculate car. The team was
-                            very accommodating. Highly recommend for premium car
-                            rentals!
-                          </p> */}
                         </div>
                       </div>
                       <div className="col-md-4">
                         <div className="client_taital_box">
                           <div className="client_img">
-                          <img src="/assets/images/logop.png" />
+                            <img src="/assets/images/logop.png" />
                           </div>
-                          {/* <h3 className="moark_text">Rohan</h3> */}
-                          {/* <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />
-                            Luxury Rides provided exceptional service and a
-                            fantastic vehicle. Definitely my go-to for car
-                            rentals now
-                          </p> */}
                         </div>
                       </div>
-                       
+
                       <div className="col-md-4">
                         <div className="client_taital_box">
                           <div className="client_img">
-                          <img src="/assets/images/mercilogo.png" />
+                            <img src="/assets/images/mercilogo.png" />
                           </div>
-                          {/* <h3 className="moark_text">Rohan</h3> */}
-                          {/* <p className="client_text">
-                            ⭐⭐⭐⭐⭐
-                            <br />
-                            Luxury Rides provided exceptional service and a
-                            fantastic vehicle. Definitely my go-to for car
-                            rentals now
-                          </p> */}
+
                         </div>
                       </div>
 
@@ -463,7 +397,7 @@ export default function Home() {
         </div>
         {/* client section end */}
         {/* contact section start */}
-        <div className="contact_section layout_padding" >
+        <div className="contact_section layout_padding">
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
@@ -477,34 +411,33 @@ export default function Home() {
                 <div className="col-md-12">
                   <div className="mail_section_1">
                     <form onSubmit={onSubmit}>
-                    <input
-                      type="text"
-                      className="mail_text"
-                      placeholder="Name"
-                      name="name"
-                    />
-                    <input
-                      type="text"
-                      className="mail_text"
-                      placeholder="Email"
-                      name="email"
-                    />
-                    <input
-                      type="text"
-                      className="mail_text"
-                      placeholder="Phone Number"
-                      name="Phone Number"
-                    />
-                    <textarea
-                      className="massage-bt"
-                      placeholder="Massage"
-                      rows={5}
-                      id="comment"
-                      name="message"
-                    />
-                    <div className="send_bt">
-                      <button type="submit">Send</button>
-                    </div>
+                      <input
+                        type="text"
+                        className="mail_text"
+                        placeholder="Name"
+                        name="name"
+                      />
+                      <input
+                        type="email"
+                        className="mail_text"
+                        placeholder="Email"
+                        name="email"
+                      />
+                      <input
+                        type="number"
+                        className="mail_text"
+                        placeholder="Phone Number"
+                        name="phone_number"
+                      />
+                      <textarea
+                        className="massage-bt"
+                        placeholder="Address"
+                        rows={2}
+                        name="Message"
+                      />
+                      <div className="send_bt">
+                        <button type="submit">Send</button>
+                      </div>
                     </form>
                   </div>
                 </div>

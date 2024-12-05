@@ -84,11 +84,11 @@ export default function AdminHeader() {
                     </Link>
                   </div>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/admin/viewuser">
                     User
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/viewbooking">
                     Booking

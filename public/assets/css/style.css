@@ -2075,7 +2075,7 @@ textarea#comment.massage-bt::placeholder {
   max-width: 600px; /* Limits the width of the form container */
   width: 100%; /* Ensures responsiveness */
   margin: 50px auto; /* Centers horizontally */
-  background-color: white;
+  background-color: rgba(150, 136, 136, 0.651);
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0px 0px 6px 6px #f4f3f2;
@@ -2224,4 +2224,37 @@ textarea#comment.massage-bt::placeholder {
   color:black;
   font-weight: bold;
 }
+
+.feedback-form {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.feedback-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.feedback-submit {
+  background-color: #416E96;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.feedback-submit:hover {
+  background-color: #314b6c;
+}
+
+
+
+/* admin page */
 
